@@ -1,8 +1,8 @@
 package webservice.webservice.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,4 +15,15 @@ public class UserService {
     {
         return service.findAll();
     }
+    @GetMapping("/users/{id}")
+    public user retreive(@PathVariable int id)
+    {
+      return service.findOne(id);
+    }
+    @PostMapping
+    public void createUser(@RequestBody user User)
+    {
+      user savedUser=service.save(User);
+    }
+
 }

@@ -13,6 +13,9 @@ public class user {
         this.bdate = date;
     }
 
+    public user() {
+    }
+
     @Override
     public String toString() {
         return "user{" +
